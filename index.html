@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortex</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- <link rel="stylesheet" href="styleX.css"> -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <style>
+        * {
+            margin: 0;
+            font-family: Arial;
+            border: border-box;
+        }
+
+        .navbar {
+            height: 100px;
+            background-color: #000000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+
+        .nav-logo {
+            height: 65px;
+            width: 200px;
+            background-image: url("Vortex.png");
+            background-size: cover;
+        }
+
+        .border {
+            border: 1.5px solid transparent;
+        }
+
+        .border:hover {
+            border: 1.5px solid white;
+        }
+
+        /** box2 **/
+        .add-first {
+            color: #cccccc;
+            font-size: 0.85rem;
+            margin-left: 22px;
+        }
+
+        .add-second {
+            font-size: 1rem;
+            margin-left: 3px;
+        }
+
+        .add-icon {
+            display: flex;
+            align-items: center;
+        }
+
+        /** box3 **/
+        .nav-search {
+            display: flex;
+            justify-content: space-evenly;
+            background-color: pink;
+            width: 620px;
+            height: 45px;
+            border-radius: 4px;
+        }
+
+        .search-select {
+            background-color: #f3f3f3;
+            width: 50px;
+            font-size: 1.3rem;
+            text-align: center;
+            align-items: center;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            border: none;
+        }
+
+        .search-input {
+            width: 100%;
+            font-size: 1.3rem;
+            border: none;
+        }
+
+        .search-icon {
+            width: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            background-color: #febd68;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            color: #0f1111;
+
+        }
+
+        .nav-search:hover {
+            border: 2px solid orange;
+        }
+
+        .hello {
+            display: flex;
+        }
+
+        /** box4**/
+        span {
+            font-size: .90rem;
+        }
+
+        .world {
+            display: flex;
+        }
+
+        .nav-second {
+            font-size: 0.90rem;
+            font-weight: 700px;
+        }
+
+        /** box6 **/
+        .nav-cart i {
+            font-size: 30px;
+        }
+
+        .nav-cart {
+            font-size: 0.90rem;
+            font-weight: 700px;
+        }
+
+        /** panel **/
+        .panel {
+            height: 50px;
+            background-color: #222f3d;
+            display: flex;
+            align-items: center;
+            color: white;
+            justify-content: space-evenly;
+        }
+
+        .panel-op {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            /* justify-content: space-evenly; */
+        }
+
+        p {
+            display: inline;
+            margin-left: 10px;
+        }
+
+        .panel-op {
+            width: 70%;
+        }
+
+        .panel-deals {
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        /** hero section **/
+        .hero-section {
+            background-image: url("Vortex-wall.jpeg");
+            background-size: cover;
+            aspect-ratio: 3 / 2;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .hero-msg {
+            background-color: aliceblue;
+            color: black;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            width: 90%;
+            margin-bottom: 25px;
+
+        }
+
+        .hero-msg a {
+            color: #007185;
+        }
+
+        /** shop-section **/
+        .shop-section {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            background-color: #cccccc;
+            padding: 24px 18px 30px;
+        }
+
+        .box {
+            border: 2px solid black;
+            height: 430px;
+            width: auto;
+            background-color: #e2e2e2;
+            padding: 20px 0px 15px;
+            margin-top: 0;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .box-img {
+            height: 290px;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            background-color: #e2e2e2;
+            background-blend-mode: multiply;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .image-placeholder {
+            box-sizing: border-box;
+            border: 1px dashed #9a9a9a;
+            background-color: #f5f5f5;
+        }
+
+        .box-content {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        .box-content h2 {
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            .shop-section {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 560px) {
+            .shop-section {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        /**footer**/
+        footer {
+            margin-top: 15px;
+        }
+
+        .foot-panel1 {
+            background-color: #37475a;
+            color: white;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .foot-panel2 {
+            background-color: #222f3d;
+            color: white;
+            min-height: 300px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 220px));
+            justify-content: space-evenly;
+            align-items: start;
+            gap: 32px;
+            padding: 32px 24px;
+            box-sizing: border-box;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .foot-panel2 ul p {
+            display: block;
+            margin: 0 0 14px;
+            font-weight: 700;
+        }
+
+        .foot-panel2 ul a {
+            display: block;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-top: 8px;
+            color: #dddddddd;
+        }
+
+        @media (max-width: 760px) {
+            .foot-panel2 {
+                grid-template-columns: repeat(2, minmax(0, 220px));
+                justify-content: center;
+                gap: 32px 48px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .foot-panel2 {
+                grid-template-columns: minmax(0, 1fr);
+                padding: 28px 32px;
+            }
+        }
+
+        .foot-panel2 ul a:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+
+        .foot-panel3 {
+            background-color: #222f3d;
+            color: white;
+            border-top: 0.5px solid white;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo2 {
+            background-image: url("Vortex.png");
+            background-color: #222f3d;
+            background-blend-mode: screen;
+            background-size: cover;
+            height: 50px;
+            width: 150px;
+        }
+
+        .foot-panel4 {
+            background-color: #0f1111;
+            color: white;
+            height: 80px;
+            font-size: 0.7rem;
+            text-align: center;
+        }
+
+        .pages {
+            padding-top: 25px;
+        }
+
+        .copyright {
+            padding-top: 5px;
+        }
+
+        .back-to-top-btn {
+            color: white;
+            background-color: #485769;
+
+        }
+
+        .back-to-top-btn:hover {
+            background-color: #485769;
+            color: #cccccc;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo border"></div>
+            <div class="logo">
+            </div>
+            <div class="nav-address border">
+                <p class="add-first">Deliver to</p>
+                <div class="add-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p class="add-second">India</p>
+                </div>
+            </div>
+
+            <div class="nav-search">
+                <select class="search-select">
+                    <option>All</option>
+                </select>
+                <input placeholder="Search Vortex" class="search-input">
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+
+            <div class="nav-signin border">
+                <p class="hello"><span>Hello, sign in</span></p>
+                <p class="nav-second">Account & lists</p>
+            </div>
+            <div class="nav-return border">
+                <p class="world"><span>Returns</span></p>
+                <p class="nav-second">& Orders</p>
+            </div>
+
+            <div class="nav-cart border">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-all">
+                <i class="fa-solid fa-bars"></i>
+                All
+            </div>
+            <div class="panel-op">
+                <p>Vortex Video</p>
+                <p>Bestsellers</p>
+                <p>Today's Deals</p>
+                <p>Mobiles</p>
+                <p>Customer Service</p>
+                <p>New Releases</p>
+                <p>Vortex Pay</p>
+            </div>
+            <div class="panel-deals">
+                Shop deals in Electrons
+            </div>
+        </div>
+        </div>
+    </header>
+    <div class="hero-section">
+        <div class="hero-msg">
+            <p>Shop smarter. Shop faster. Shop with Yash. Discover amazing products, great deals, and a smooth shopping
+                experience — all in one place. Built with passion by Yash as an original e-commerce project called
+                Vortex. <a href="#products">Explore Products →</a></p>
+        </div>
+    </div>
+
+    <div class="shop-section">
+        <!-- Card 1 -->
+        <div class="box1 box">
+            <div class="box-content">
+                <h2>Health & Personal Care</h2>
+                <div class="box-img" style="background-image: url('care.jpeg');"></div>
+                <a href="#" class="see-more-link">See more</a>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="box2 box">
+            <div class="box-content">
+                <h2>Beauty Products</h2>
+                <div class="box-img" style="background-image: url('Makeup.jpeg');"></div>
+                <a href="#" class="see-more-link">See more</a>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="box3 box">
+            <div class="box-content">
+                <h2>Electronics & Tech</h2>
+                <div class="box-img" style="background-image: url('Phone.jpeg');"></div>
+                <a href="#" class="see-more-link">See more</a>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="box4 box">
+            <div class="box-content">
+                <h2>Kitchen Essentials</h2>
+                <div class="box-img" style="background-image: url('Kitchen.jpeg');"></div>
+                <a href="#" class="see-more-link">See more</a>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="box5 box">
+            <div class="box-content">
+                <h2>Toys & Games</h2>
+                <div class="box-img" style="background-image: url('Games.jpeg');"></div>
+                <a href="#" class="see-more-link">See more</a>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="box6 box">
+            <div class="box-content">
+                <h2>Books & Stationery</h2>
+                <div class="box-img" style="background-image: url('Books.jpeg');"></div>
+                <a href="#" class="see-more-link">See more</a>
+            </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="box7 box">
+            <div class="box-content">
+                <h2>Fashion & Accessories</h2>
+                <div class="box-img" style="background-image: url('cloth.jpeg');"></div>
+                <a href="#" class="see-more-link">See more</a>
+            </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="box8 box">
+            <div class="box-content">
+                <h2>Home & Living</h2>
+                <div class="box-img" style="background-image: url('Home.jpeg');"></div>
+                <a href="#" class="see-more-link">See more</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+
+        <body id="top">
+
+            <div class="foot-panel1">
+                <a href="#top" class="back-to-top-btn">Back to top</a>
+            </div>
+            <div class="foot-panel2">
+                <ul>
+                    <p>Get to Know Us</p>
+                    <a>About Vortex</a>
+                    <a>Careers</a>
+                    <a>Press Releases</a>
+                    <a>Vortex Science</a>
+                </ul>
+                <ul>
+                    <p>Connect with Us</p>
+                    <a>Facebook</a>
+                    <a>Twitter</a>
+                    <a>Instagram</a>
+                </ul>
+                <ul>
+                    <p>Make Money with Us</p>
+                    <a>Sell on Vortex</a>
+                    <a>Sell under Vortex Accelerator</a>
+                    <a>Protect and Build Your Brand</a>
+                    <a>Vortex Global Selling</a>
+                    <a>Supply to Vortex</a>
+                    <a>Become an Affiliate</a>
+                    <a>Fulfilment by Vortex</a>
+                    <a>Advertise Your Products</a>
+                    <a>Vortex Pay on Merchants</a>
+                    <a>Let Us Help You</a>
+                </ul>
+            </div>
+            <div class="foot-panel3">
+                <div class="logo2"></div>
+            </div>
+
+            <div class="foot-panel4">
+                <div class="pages">
+                    <a>Conditions of use</a>
+                    <a>Privacy Notice</a>
+                    <a>Your Ads Privacy Choices</a>
+                </div>
+                <div class="copyright">
+                    © 2026 Vortex. All rights reserved.
+                </div>
+            </div>
+
+    </footer>
+</body>
+
+</html>
