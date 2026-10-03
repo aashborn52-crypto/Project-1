@@ -30,7 +30,7 @@
         .nav-logo {
             height: 65px;
             width: 200px;
-            background-image: url("Vortex.jpg");
+            background-image: url("Vortex.png");
             background-size: cover;
         }
 
@@ -208,6 +208,12 @@
             margin-top: 0;
             overflow: hidden;
             box-sizing: border-box;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .box-img {
@@ -328,7 +334,7 @@
         }
 
         .logo2 {
-            background-image: url("Vortex.jpg");
+            background-image: url("Vortex.png");
             background-color: #222f3d;
             background-blend-mode: screen;
             background-size: cover;
